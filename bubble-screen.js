@@ -13,3 +13,10 @@ render(o0)
 
 
 solid().out(o0)
+
+
+// v2 
+
+noise(20, 0.064)
+  .modulatePixelate(src(o0), 100, -0.084)
+  .blend(noise(2, 0.061)).out(o0);
