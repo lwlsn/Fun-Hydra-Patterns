@@ -1,0 +1,1 @@
+osc(6, 0.141, -0.198).luma(0.716).modulate(noise(3.294, 0.3).pixelate(107.645, 56.837).contrast(5.161).blend(o0, 0.54), 0.48).modulate(o0, 0.25).out();
