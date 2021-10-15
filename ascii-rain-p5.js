@@ -1,4 +1,7 @@
 
+// To-do: Build OSC receiver that accepts data as an input, change emojis and colours for this.. 
+
+
 p1 = new P5()
 
 p1.frameRate(15)
