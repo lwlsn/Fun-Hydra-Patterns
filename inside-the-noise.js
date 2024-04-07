@@ -1,0 +1,15 @@
+speed=1.5
+a.setSmooth(0.9) 
+a.setBins(4)
+a.setScale(8)  
+a.show()
+
+osc(10, 0.1, 0.01)
+  .mult(osc(10, -0.1))
+	.modulate(noise([0.3, 0.6, 0.9, 1.8]).rotate(4,0.4),1)
+	.color(100,200,100)
+.invert([1, 0.1])
+.saturate(0.1)
+.luma(0.2, 0.3, (9, ()=> a.fft[2]))
+.scale(0.8)
+  .out()
