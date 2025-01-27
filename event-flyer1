@@ -1,0 +1,35 @@
+// licensed with CC BY-NC-SA 4.0 https://creativecommons.org/licenses/by-nc-sa/4.0/
+osc(13,0.2,5)
+.mask(shape(90,0.4))
+.modulateScale(osc(0.4,4).repeat(7,4).rotate(0.4,0.2).modulate(voronoi(15,3),0.5))
+.scroll(0.3,0.4)
+.out(o0)
+osc(9,0.5,4)
+.mask(shape([2,4,6,8,10,32,24,12,3,6,2].smooth(),0.4).scroll(-0.2,-0.1)).rotate(0.2,0.4).modulate(voronoi(9,0.3,4))
+.out(o1)
+src(o2).scale(1.01)
+.layer(src(o1).modulateScale(o2))
+.out(o2)
+
+c=document.createElement("canvas")
+c.width=window.innerWidth
+c.height=window.innerHeight
+s0.init({src:c})
+cx = c.getContext('2d');
+
+cx.clearRect(0, 0, c.width, c.height)
+cx.shadowColor = 'black';
+cx.shadowOffsetX = 10;
+cx.shadowBlur = 10;
+g = cx.createLinearGradient(40, 0, 950, 100)
+g.addColorStop(0, "rgb(255, 153, 251)");
+g.addColorStop(.5, "rgb(255, 153, 151)");
+g.addColorStop(1, "rgb(105, 253, 51)");
+cx.fillStyle = g;
+cx.font = '100px sans-serif';
+cx.fillStyle = "plum"
+cx.fillText('HAUT', 160, 180);
+cx.fillText('Shreya Gupta', 120, 300);
+cx.fillText('Junson Park', 350, 420);
+src(o2).layer(src(s0).contrast(2).saturate(4).modulateScale(noise(0.8).pixelate(2000,1).color(0,1),.4)).out(o3)
+render(o3)
